@@ -10,9 +10,67 @@ rules:
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
-  - action: utter_iamabot
+  - action: utter_iamabot 
 
+- rule: ask who build you
+  steps:
+  - intent: ask_who_build
+  - action: utter_build
+
+  
 - rule: ask number of poeple
   steps:
   - intent: request_numbers_of_pople
   - action: search_for_table
+
+- rule: default_fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_custom_fallback
+
+- rule: ask closing time
+  steps:
+  - intent: closingTime
+  - action: check_closing_time
+
+- rule: ask opening time
+  steps:
+  - intent: openingTime
+  - action: check_opening_time
+
+- rule: ask business hours
+  steps:
+  - intent: business_hours
+  - action: utter_business_hours
+- rule: respond to thank
+  steps:
+  - intent: thanks
+  - action: utter_youre_welcome
+
+
+- rule: greeting
+  steps:
+  - intent: greet
+  - action: utter_greet_customers
+
+- rule: ask for utilities
+  steps:
+  - intent: ask_some_utilities
+  - action: utter_bringing_utilities
+
+# to modify (just trick)
+
+- rule: take in not available table & cust. want to wait
+  steps:
+  - intent: affirm_to_wait_for_availble_table
+  - action: utter_it_wont_take_long
+
+- rule: take in not available table & cust. doesn't want to wait
+  steps:
+  - intent: deny_cannot_wait
+  - action: utter_no_table_sorry
+
+- rule: pick which didnt work on the stories
+  steps:
+  - intent: get_the_pickup_name
+  - action: pick_up_action

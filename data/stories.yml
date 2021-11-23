@@ -4,14 +4,32 @@ stories:
 
 
 
-- story: take in
+- story: take in not available table & cust. want to wait
   steps:
-  - intent: greet
-  - action: utter_greet_customers
   - intent: take_in
   - action: utter_ask_how_mony_poeple
   - intent: request_numbers_of_pople
   - action: search_for_table
+
+
+- story: take in not available table & cust. doesn't want to wait
+  steps:
+  - intent: take_in
+  - action: utter_ask_how_mony_poeple
+  - intent: request_numbers_of_pople
+  - action: search_for_table
+
+- story : need a table 
+  steps:
+  - intent: reaquest_table
+  - action: search_for_table
+  - intent: request_numbers_of_pople
+  - action: search_for_table
+
+- story: need a table without greeting
+  steps:
+  - intent: utter_ask_how_mony_poeple
+  - action: utter_ask_how_mony_poeple
 
 - story: want to drink
   steps:
@@ -19,7 +37,14 @@ stories:
   - action: utter_ask_if_want_drinks
   - intent: want_drink
   - action: search_drinks
-#  - action: search_drinks
+  
+
+- story: customer ask for drink
+  steps:
+  - intent: ask_for_drink
+  - action: utter_present_drinks
+  - intent: want_drink
+  - action: search_drinks
 
 - story: doesn't want to drink
   steps:
@@ -74,3 +99,19 @@ stories:
   - action: utter_order_on_tablet
   - intent: want_to_order_with_waiter # signal to be send to the main module
   - action: utter_calling_waiter
+
+- story: pick up
+  steps:
+  - intent: pick_up
+  - action: utter_ask_pickup_name
+
+- story: booked table
+  steps:
+  - intent: table_booked
+  - action: utter_ask_name
+  - intent: get_name
+  - action: booked_table_action
+
+
+
+  

@@ -99,6 +99,7 @@ nlu:
     - no I'm good
     - no thanks
 
+
 - intent: mood_great
   examples: |
     - perfect
@@ -139,6 +140,12 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: ask_who_build
+  examples: |
+    - who build you 
+    - may ask who build you
+    - who created you
+    - who implemented you
 
 - intent: take_out
   examples: |
@@ -164,20 +171,14 @@ nlu:
     - can I get [sevenup](drink) please
     - I want [sevenup](drink) please
 
-- intent: reaquest_table
+- intent: ask_for_drink
   examples: |
-    - I need a table
-    - I want a table
-    - we need a table
-    - we want to take a table
-    - we need a table
-    - we want to take a table
-    - we need a table
-    - we want to take a table
-    - we need a table
-    - we want to take a table
-    - we need a table
-    - we want to take a table
+    - can I get something to drink
+    - what do you have to drink
+    - which kind of drink do you guys have
+    - I need something to drink
+  
+
 
 - intent: table_booked
   examples: |
@@ -185,6 +186,25 @@ nlu:
     - I reserved a table
     - we booked a table
     - we reserved a table
+
+- intent: get_name
+  examples: |
+    - I booked on the name of [Harouna](name)
+    - [Harouna](name) 
+    - [harouna](name) 
+    - I booked on the name of [Santiago](name)
+    - [Santiago](name) 
+    - I booked on the name of [amen](name)
+    - [amen](name)
+
+- intent: get_the_pickup_name
+  examples: |
+    - I ordered on the name of [Harouna](pickup_name)
+    - [Harouna](pickup_name) 
+    - I orderd on the name of [Santiago](pickup_name)
+    - [Santiago](pickup_name) 
+    - I orderd on the name of [amen](pickup_name)
+    - [amen](pickup_name) 
 
 
 - intent: pick_up
@@ -211,6 +231,37 @@ nlu:
     - programming
     - first program
 
+- intent: reaquest_table
+  examples: |
+    - I need a table [myslef](person)
+    - I want a table [myself](person)
+    - I need a table for [2](person) persons
+    - I want a table for [2](person) poeple
+    - I need a table for [3](person) persons
+    - I want a table for [3](person) poeple
+    - I need a table for [4](person) persons
+    - I want a table for [4](person) poeple
+    - we need a table for [2](person) persons
+    - we need a table for [2](person) persons
+    - we want to take a table [2](person) poeple
+    - we need a table for [3](person) persons
+    - we want to take a table [3](person) poeple
+    - we need a table for [4](person) persons
+    - we want to take a table [4](person) poeple
+    - we need a table for [5](person) persons
+    - we want to take a table [5](person) poeple
+    - we need a table for [6](person) persons
+    - we want to take a table [6](person) poeple
+    - we need a table for [7](person) persons
+    - we want to take a table [7](person) poeple
+
+- intent: need_table_without_giving_number_of_persons
+  examples: |
+    - I need a table
+    - we need a table
+    - I want a table
+    - we want a table
+
 - intent: request_numbers_of_pople
   examples: |
     - [2](person)
@@ -233,3 +284,579 @@ nlu:
     - show me [chineese](hotel) restaurant
     - show me [thai](hotel) restaurant
     - show me [italian](hotel) restaurant
+
+- intent: out_of_scoope
+  examples: |
+    - I want to book a fly to new york
+    - I want to check my bank account balance
+    - what is canadian prime minister
+    - do we have class today
+
+- intent: closingTime
+  examples: |
+    - the restaurant close at what [time](closingtime) [today](day)
+    - [today](day) the restaurant close at what [time](closingtime) 
+    - at what [time](closingtime) the restaurant close [today](day)
+    - what is the closing [time](closingtime) [today](day)
+    - [today](day) what is the closing [time](closingtime)
+    - you are open until what [time](closingtime) [today](day)
+    - [today](day) you are open until what [time](closingtime) 
+    - until what [time](closingtime) you are open [today](day)
+    - the restaurant close at what [time](closingtime) [tomorrow](day)
+    - at what [time](closingtime) the restaurant close [tomorrow](day)
+    - you are open until what [time](closingtime) [tomorrow](day)
+    - until what [time](closingtime) you are open [tomorrow](day)
+
+- intent: openingTime
+  examples: |
+    - the restaurant open at what [time](closingtime) [today](day)
+    - at what [time](closingtime) the restaurant open [today](day)
+    - the restaurant close at what [time](closingtime) [tomorrow](day)
+    - at what [time](closingtime) the restaurant open [tomorrow](day)
+
+
+- intent: business_hours
+  examples: |
+    -  what is business hours of the restaurant
+    -  business hours of the restaurant
+    -  what time does the restaurant open
+
+- intent: thanks
+  examples: |
+    - thank you !
+    - thanks
+    - thank you very much
+    - thanks a lot
+
+- intent: affirm_to_wait_for_availble_table
+  examples: |
+    - yes I can wait
+    - No problem I can wait
+    - Yes I do mind to wait
+    - Yes that's fine
+    - Yes
+- intent: deny_cannot_wait
+  examples: |
+    - no sorry
+    - no i can't wait
+    - no sorry i can't wait
+    - no i cannot wait
+
+- intent: ask_some_utilities
+  examples: |
+    - can I have some sugar please
+    - please can I have some sugar
+    - can I have some black pepper please
+    - please can I have some black pepper
+    - can I have some pepper please
+    - please can I have some pepper
+    - can I have spoon please
+    - please can I have spoon 
+    - can I get a spoon
+    - do you mind to give me a spoon 
+    - please can I have fork 
+    - can I get a fork
+    - do you mind to give me a fork
+    - please can I have some ketchup
+    - can I get a ketchup
+    - do you mind to give me some ketchup  
+
+
+
+- lookup: name
+  examples: |
+    - Emma 
+    - Alice
+    - Olivia
+    - Lea
+    - Charlie
+    - Charlotte
+    - Florence
+    - Livia
+    - Zoe
+    - Chloe
+    - Betrice
+    - Eva
+    - Rosalie
+    - Rose
+    - Rosalie
+    - Romy
+    - Victoria 
+    - Clara
+    - Jade
+    - Sofia
+    - Mila
+    - Camille
+    - Maeva
+    - Flavie 
+    - Jeanne
+    - Leonie
+    - Elizabeth
+    - Amelia
+    - Hope
+    - Laurence
+    - Sarah
+    - sara
+    - Raphaelle
+    - Julia
+    - Sophia
+    - Annabelle
+    - Elodie
+    - Alicia 
+    - Ophelle
+    - Gabrielle
+    - Adele
+    - Elena
+    - Lexie
+    - Eleonore
+    - Maelie
+    - Oceane
+    - Anna
+    - Aurelie
+    - Coralie
+    - Simone
+    - Anais
+    - Alexia
+    - Jasmine
+    - Harouna
+    - Santiago
+    - Amen
+    - Michelle
+    - Marc-André
+    - Marc
+    - Laurie
+    - Mohamed
+    - Mouhamad
+    - Mouhammadou
+    - Mouhamadou
+    - Mouhamd
+    - Lily
+    - Noemie
+    - Naomie
+    - Sophie
+    - Justine
+    - Eliane 
+    - Eve
+    - Megane
+    - Elie
+    - Melodie
+    - Evelyne
+    - Delphine
+    - Emy
+    - Lyvia
+    - Maely
+    - Mathilde
+    - Elisabeth
+    - Magalie
+    - Abbaly
+    - Maika
+    - Eloisa
+    - Laura
+    - Leanne
+    - Romane
+    - Arielle
+    - Stella
+    - Agathe
+    - Alyssa
+    - Emilie
+    - Estelle
+    - Lina
+    - Layla
+    - Abigaelle
+    - Emma-Rose
+    - Yasmine
+    - Lily-Rose
+    - Alycia
+    - Zoey
+    - Aya
+    - Kayla
+    - Leane
+    - Margot
+    - Marianne
+    - Clemence
+    - Emily
+    - Megan
+    - Tom 
+    - Albert
+    - Aiden 
+    - Luca 
+    - Sam
+    - Etienne
+    - Maverick
+    - Alexander
+    - Vincent
+    - Michael
+    - Leon
+    - Ali
+    - Elias
+    - Loik
+    - Adrien 
+    - Jack
+    - Maxence
+    - Enzo
+    - Aydan
+    - Amadou 
+    - Sadikh
+    - Aziz
+    - Abdoul Aziz
+    - Elimane
+    - Imam
+    - Bachir
+    - Sliou
+    - Serigne
+    - Hugo
+    - Mathias
+    - Axel
+    - Jordan
+    - David
+    - Alex
+    - Julien
+    - Tyler
+    - Ryan
+    - Zackary
+    - Lyam
+    - Damien
+    - Matteo
+    - Eliot
+    - Rafael
+    - Daniel
+    - Philippe
+    - Nicolas
+    - Anthony
+    - Antoine
+    - Ludovic
+    - Evan 
+    - Hayden
+    - Malik
+    - Matheo
+    - Eliott
+    - Mayson
+    - Justin
+    - Caleb
+    - Louka
+    - Theodore
+    - Ryan
+    - Eloi
+    - Leonard
+    - Alexandre
+    - Issac
+    - Jake
+    - Dylan
+    - Jackson
+    - Eli
+    - Tristan
+    - Loic
+    - Jules
+    - Laurent
+    - Mathis
+    - Hubert
+    - Zachary
+    - Henri
+    - Nolan
+    - Arnaud
+    - Xavier
+    - Theo
+    - Ethan
+    - Zack
+    - Lucas
+    - Elliot
+    - Milan
+    - Louis
+    - Benjamin
+    - Arthur
+    - James 
+    - Gabriel
+    - Olivier
+    - Victor
+    - Charles 
+    - Adam 
+    - Samuel 
+    - Alexis
+    - Raphael 
+    - Emilie
+    - Nathan
+    - Edouard
+    - Felix
+    - Jacob
+    - Leo
+    - Noah
+    - Thomas 
+    - Logan
+    - Liam
+    - William
+    - Aida
+    - Amel
+    - Amra
+    - Anika
+    - Assia
+    - Asma
+    - Bintou
+    - Mariama
+    - Zinah
+    - Fatou
+    - Fatoumata
+    - Gnima
+    - Emele
+    - Aicha
+    - Astou
+    - Mame
+    - Mame Nene
+    - Kadija
+    - kHadija
+    - Aboubakr
+    - Modou
+    - Moussa 
+    - ibrahim
+    - Ibrahima
+    - Yacine
+    - Malik
+    - Malick      
+    
+- lookup: pickup_name
+  examples: |
+    - Emma 
+    - Alice
+    - Olivia
+    - Lea
+    - Charlie
+    - Charlotte
+    - Florence
+    - Livia
+    - Zoe
+    - Chloe
+    - Betrice
+    - Eva
+    - Rosalie
+    - Rose
+    - Rosalie
+    - Romy
+    - Victoria 
+    - Clara
+    - Jade
+    - Sofia
+    - Mila
+    - Camille
+    - Maeva
+    - Flavie 
+    - Jeanne
+    - Leonie
+    - Elizabeth
+    - Amelia
+    - Hope
+    - Laurence
+    - Sarah
+    - sara
+    - Raphaelle
+    - Julia
+    - Sophia
+    - Annabelle
+    - Elodie
+    - Alicia 
+    - Ophelle
+    - Gabrielle
+    - Adele
+    - Elena
+    - Lexie
+    - Eleonore
+    - Maelie
+    - Oceane
+    - Anna
+    - Aurelie
+    - Coralie
+    - Simone
+    - Anais
+    - Alexia
+    - Jasmine
+    - Harouna
+    - Santiago
+    - Amen
+    - Michelle
+    - Marc-André
+    - Marc
+    - Laurie
+    - Mohamed
+    - Mouhamad
+    - Mouhammadou
+    - Mouhamadou
+    - Mouhamd
+    - Lily
+    - Noemie
+    - Naomie
+    - Sophie
+    - Justine
+    - Eliane 
+    - Eve
+    - Megane
+    - Elie
+    - Melodie
+    - Evelyne
+    - Delphine
+    - Emy
+    - Lyvia
+    - Maely
+    - Mathilde
+    - Elisabeth
+    - Magalie
+    - Abbaly
+    - Maika
+    - Eloisa
+    - Laura
+    - Leanne
+    - Romane
+    - Arielle
+    - Stella
+    - Agathe
+    - Alyssa
+    - Emilie
+    - Estelle
+    - Lina
+    - Layla
+    - Abigaelle
+    - Emma-Rose
+    - Yasmine
+    - Lily-Rose
+    - Alycia
+    - Zoey
+    - Aya
+    - Kayla
+    - Leane
+    - Margot
+    - Marianne
+    - Clemence
+    - Emily
+    - Megan
+    - Tom 
+    - Albert
+    - Aiden 
+    - Luca 
+    - Sam
+    - Etienne
+    - Maverick
+    - Alexander
+    - Vincent
+    - Michael
+    - Leon
+    - Ali
+    - Elias
+    - Loik
+    - Adrien 
+    - Jack
+    - Maxence
+    - Enzo
+    - Aydan
+    - Amadou 
+    - Sadikh
+    - Aziz
+    - Abdoul Aziz
+    - Elimane
+    - Imam
+    - Bachir
+    - Sliou
+    - Serigne
+    - Hugo
+    - Mathias
+    - Axel
+    - Jordan
+    - David
+    - Alex
+    - Julien
+    - Tyler
+    - Ryan
+    - Zackary
+    - Lyam
+    - Damien
+    - Matteo
+    - Eliot
+    - Rafael
+    - Daniel
+    - Philippe
+    - Nicolas
+    - Anthony
+    - Antoine
+    - Ludovic
+    - Evan 
+    - Hayden
+    - Malik
+    - Matheo
+    - Eliott
+    - Mayson
+    - Justin
+    - Caleb
+    - Louka
+    - Theodore
+    - Ryan
+    - Eloi
+    - Leonard
+    - Alexandre
+    - Issac
+    - Jake
+    - Dylan
+    - Jackson
+    - Eli
+    - Tristan
+    - Loic
+    - Jules
+    - Laurent
+    - Mathis
+    - Hubert
+    - Zachary
+    - Henri
+    - Nolan
+    - Arnaud
+    - Xavier
+    - Theo
+    - Ethan
+    - Zack
+    - Lucas
+    - Elliot
+    - Milan
+    - Louis
+    - Benjamin
+    - Arthur
+    - James 
+    - Gabriel
+    - Olivier
+    - Victor
+    - Charles 
+    - Adam 
+    - Samuel 
+    - Alexis
+    - Raphael 
+    - Emilie
+    - Nathan
+    - Edouard
+    - Felix
+    - Jacob
+    - Leo
+    - Noah
+    - Thomas 
+    - Logan
+    - Liam
+    - William
+    - Aida
+    - Amel
+    - Amra
+    - Anika
+    - Assia
+    - Asma
+    - Bintou
+    - Mariama
+    - Zinah
+    - Fatou
+    - Fatoumata
+    - Gnima
+    - Emele
+    - Aicha
+    - Astou
+    - Mame
+    - Mame Nene
+    - Kadija
+    - kHadija
+    - Aboubakr
+    - Modou
+    - Moussa 
+    - ibrahim
+    - Ibrahima
+    - Yacine
+    - Malik
+    - Malick

@@ -1,0 +1,8 @@
+tests/*
+models/*
+actions/*
+**/*.md
+voice_bot/*
+rasa-chatbot/*
+RobotDeliverySystem/*
+./idea/*

@@ -24,6 +24,21 @@ intents:
   - call_robot
   - say_want_to_order
   - want_to_order_with_waiter
+  - out_of_scoope 
+  - closingTime
+  - openingTime
+  - business_hours
+  - thanks
+  - affirm_to_wait_for_availble_table
+  - need_table_without_giving_number_of_persons
+  - utter_ask_how_mony_poeple
+  - get_name
+  - get_the_pickup_name
+  - ask_for_drink
+  - ask_some_utilities
+  - ask_who_build
+  - deny_cannot_wait
+
 
 
 actions:
@@ -32,13 +47,23 @@ actions:
   - action_hello_world
   - action_search_restaurant
   - search_drinks
+  - action_custom_fallback
+  - check_closing_time
+  - check_opening_time
+  - validate_table_booked
+  - pick_up_action
+  - booked_table_action
 
 entities:
   - person
   - order
   - drink
   - hotel
-
+  - day
+  - closingtime
+  - name
+  - last_name
+  - pickup_name
 
 slots:
   drink:
@@ -46,16 +71,19 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: false
-#  order:
- #   type: rasa.shared.core.slots.UnfeaturizedSlot
-  #  initial_value: null
-   # auto_fill: true
-   # influence_conversation: false
- # drink:
-  #  type: rasa.shared.core.slots.ListSlot
-   # initial_value: null
-    #auto_fill: true
-    #influence_conversation: false
+  name:
+    type: text
+    influence_conversation: true
+  pickup_name:
+    type: text
+    influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+
+
+
+
 
 
 
@@ -75,11 +103,14 @@ responses:
 
   utter_goodbye:
   - text: "Bye"
-
+  utter_bringing_utilities:
+  - text: " Sure !"
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot,  powerd by a group of student in Computer Engineering at university of Ottawa."
+  utter_build:
+  - text: " I'm built by Harouna Sylla"
   utter_greet_customers:
-  - text: "Hi there, Do you want take in or take out ? "
+  - text: "Hi there, how can I help you ? "
   utter_order_on_tablet:
   - text: " Do you you want to order on the tablet or with a waiter ?"
   utter_proceed_order_on_tablette:
@@ -89,7 +120,9 @@ responses:
   utter_ask_how_mony_poeple:
   - text: " you want take in for how many poeple"
   utter_ask_if_want_drinks:
-  - text: " Do you want somethings to drink ? we have Ice tea, limonade, orange juice and sevenup"
+  - text: " Do you want somethings to drink ? we have Ice tea, limonade, orange juice and seven up"
+  utter_present_drinks: 
+  - text: " Sure! we have Ice tea, limonade, orange juice and seven up"
   utter_bring_drinks:
   - text: " Alright, I'll be back with your drinks you want {drink} "
   utter_agree:
@@ -102,8 +135,42 @@ responses:
   - text: " sure !"
   utter_calling_waiter:
   - text: " A waiter will be with you very soon !"
-  #  utter_no_problem:
- # - text: " A waiter will be with you very soon !"
+  utter_custom:
+  - text: " Sorry I didn't get that please repeat again !"
+  utter_it_wont_take_long:
+  - text: " Alright it won't take long"
+  utter_no_table_sorry:
+  - text: " Oh sorry ! we'll see you next time "
+  utter_youre_welcome:
+  - text: " No problem !"
+  - text: " you're welcome !"
+  utter_ask_on_which_the_table_is_booked:
+  - text: " on which the table is booked please ?"
+
+  utter_business_hours:
+  - text: " From Monday to Thursday the restaurant is opens at 10 am and closes at 10pm and from Friday to Saturday it opens at 11am and closes at midnight and Saturday it opens at 11am and closes at 10pm"
+  utter_ask_name:
+  - text: " On which name did you booked ?"
+  utter_ask_pickup_name:
+  - text: " On which name did you ordered ?"
+  utter_submit:
+  - text: " Your table should be ready. Follow me please"
+
+
+ 
+forms:
+  book_form:
+    required_slots:
+      name:
+        - type: from_entity
+          entity: name
+  pick_up_form:
+    required_slots:
+      pickup_name:
+        - type: from_entity
+          entity: pickup_name
+
+
 
 session_config:
   session_expiration_time: 60
