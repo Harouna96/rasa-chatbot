@@ -47,6 +47,16 @@ rules:
   - intent: thanks
   - action: utter_youre_welcome
 
+- rule: ask robot name
+  steps:
+  - intent: ask_robot_name
+  - action: utter_dont_have_name_yet
+
+- rule: ohh okay
+  steps:
+  - intent: ohh_oaky
+  - action: utter_express_yeah
+
 
 - rule: greeting
   steps:

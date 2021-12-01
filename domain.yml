@@ -38,7 +38,12 @@ intents:
   - ask_some_utilities
   - ask_who_build
   - deny_cannot_wait
-
+  - want_food
+  - want_make_payment
+  - pay_on_debit
+  - pay_with_cash
+  - ohh_oaky
+  - ask_robot_name
 
 
 actions:
@@ -134,7 +139,7 @@ responses:
   utter_sure :
   - text: " sure !"
   utter_calling_waiter:
-  - text: " A waiter will be with you very soon !"
+  - text: " Alright! a waiter will be with you very soon !"
   utter_custom:
   - text: " Sorry I didn't get that please repeat again !"
   utter_it_wont_take_long:
@@ -155,7 +160,18 @@ responses:
   - text: " On which name did you ordered ?"
   utter_submit:
   - text: " Your table should be ready. Follow me please"
-
+  utter_present_menu:
+  - text: " Okay, you can find a menu upon entrance or you can browse through my tablet and take a look on the menu and when you are ready to make your order say ' I want to make an order ' "
+  utter_ask_how_to_pay:
+  - text: " You can pay either with cash or on debit. Wich one you prefer ?"
+  utter_proceed_payment_terminal:
+  - text: " the payment terminal will be ready in 3 seconds and you can proceed you payemnt !"
+  utter_proceed_cash_payment:
+  - text: " Okay, I'm calling a waiter to come get your cash payment"
+  utter_dont_have_name_yet:
+  - text: " My designers didn't give me name yet but I hoping they will give me one before the end of the project on May 2022"
+  utter_express_yeah:
+  - text: " yeah !"
 
  
 forms:

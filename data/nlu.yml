@@ -22,6 +22,7 @@ nlu:
   examples: |
     - what is the restaurant business hours ?
     - I need to know your business hour
+    - how often does the restaurant is open
 
 - intent: request_waiter
   examples: |
@@ -42,8 +43,39 @@ nlu:
     - I want to order
     - I would like to order
     - I would like to pass my order
-    - Can mike order
+    - Can I make an order
 
+- intent: ohh_oaky
+  examples: |
+    - oh okay
+    - oh ok
+    - okay 
+    - ok
+    - ohh i see
+    - oh okay i see
+    -
+
+- intent: want_food
+  examples: |
+    - i want food 
+    - i need food
+    - i'm hungry
+    - hey i'm hungry
+    - hey i need food
+    - hey can i have something to eat
+    - we need food
+    - we want to eat
+    - we are hungry
+    - i wanna eat 
+    - do you have something to eat here
+    - can i get something to eat
+
+- intent: ask_robot_name
+  examples: |
+    - what's your name please
+    - what's your name 
+    - how can I call you
+    - your name please ?
 
 - intent: want_to_order_with_waiter
   examples: |
@@ -53,6 +85,8 @@ nlu:
     - No I want to order with a server
     - I want to order through a waiter
     - I want to order to a waiter
+    - with the waiter
+    - with a waiter please
 
 
 
@@ -186,6 +220,37 @@ nlu:
     - I reserved a table
     - we booked a table
     - we reserved a table
+    - I booked a table online
+    - I reserved a table online
+    - we booked a table online
+    - we reserved a table online
+
+- intent: want_make_payment
+  examples: |
+    - I want to make my payment
+    - I want to process my payment
+    - how can I process my payment
+    - how can I make the payment
+    - can I pay now ?
+    - can I pay the order now ?
+
+- intent: pay_on_debit
+  examples: |
+    - On debit please
+    - debit please
+    - I want to pay on debit please
+    - I can pay on debit
+    - I prefer paying on debit
+
+- intent: pay_with_cash
+  examples: |
+    - cash please
+    - with cash
+    - with cash please
+    - I want to pay with cash
+    - I can pay with cash
+    - I prefer paying with cash
+
 
 - intent: get_name
   examples: |
@@ -220,6 +285,7 @@ nlu:
     - [human](order) server
     - I want to order in [tablet](order)
     - I want to order with [human](order) server
+    - on the [tablet](order) please
 
 - intent: signal_ask_drink
   examples: |

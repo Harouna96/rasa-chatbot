@@ -24,8 +24,8 @@ table_available = ['2','4','6','8','10']
 
 closing_time = { 0:'10 pm', 1:'10 pm', 2:'10 pm', 3:'10 pm',4:'midnght',5:'midnight',6:'10pm' }
 opening_time = { 0:'10 am', 1:'10 am', 2:'10 am', 3:'10 am',4:'11 am',5:'11 am',6:'11 am' }
-booked_list = [ 'Harouna', 'Santiago', 'Amen']
-booked_list_ready = [ 'Harouna', 'Santiago']
+booked_list = [ 'Harouna', 'harouna', 'Santiago', 'santiago', 'Amen']
+booked_list_ready = [ 'Harouna', 'harouna', 'Santiago', 'santiago']
 
 
 
@@ -50,7 +50,7 @@ class ActionBookTableForm(Action):
   
         else:
         
-            dispatcher.utter_message(text=f"Sorry we don't have any booked table on the name of " + entities[0]['value'])
+            dispatcher.utter_message(text=f"Sorry we don't have any booked table on the name of " + entities[0]['value'] + " You need a table for how many poeple ?")
 
 
         return []
@@ -74,14 +74,14 @@ class ActionPickUp(Action):
         if entities[0]['value']  in booked_list:
 
             if entities[0]['value'] in booked_list_ready:
-                dispatcher.utter_message(text=" Yes Your order is ready ! A waiter will bring it to you")
+                dispatcher.utter_message(text=" Yes your order is ready ! A waiter will bring it to you")
             else:
                 dispatcher.utter_message(text=" Your order is not ready yet but be patient it won't take too long")  
 
              
         else:
         
-            dispatcher.utter_message(text="Sorry we don't have any order on the name of  " + entities[0]['value'] )
+            dispatcher.utter_message(text="Sorry we don't have any order on the name of  " + entities[0]['value'] + ". Do you want to order now ?")
         
         return []
         
@@ -135,7 +135,7 @@ class ActionSearchTable(Action):
             dispatcher.utter_message(text=" Yes we have a table available for " + name['value'] + " poeple.  Please follow me ")
 
         else:
-            dispatcher.utter_message(text=" we don't have any available table for " + name['value'] + " do you mind to wait !")
+            dispatcher.utter_message(text=" we don't have any available table for " + name['value'] + " now do you mind to wait !")
         return []
 
 class ActionSearchRestaurant(Action):
@@ -180,7 +180,7 @@ class ActionHowToOrder(Action):
                 name = entities[e]
 
             if name['value'] == "tablet":
-                message = " Make your order and press submit button when you are done! "
+                message = " Okay, make your order on the tablet and press submit button when you are done! "
             if name['value'] == "human":
                 message = "One of the waiters will be with you soon!"
 

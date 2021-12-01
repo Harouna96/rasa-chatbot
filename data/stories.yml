@@ -10,6 +10,8 @@ stories:
   - action: utter_ask_how_mony_poeple
   - intent: request_numbers_of_pople
   - action: search_for_table
+  - intent: affirm
+  - action: utter_it_wont_take_long
 
 
 - story: take in not available table & cust. doesn't want to wait
@@ -18,6 +20,8 @@ stories:
   - action: utter_ask_how_mony_poeple
   - intent: request_numbers_of_pople
   - action: search_for_table
+  - intent: deny
+  - action: utter_no_table_sorry
 
 - story : need a table 
   steps:
@@ -100,17 +104,80 @@ stories:
   - intent: want_to_order_with_waiter # signal to be send to the main module
   - action: utter_calling_waiter
 
-- story: pick up
+- story: ask for food
+  steps:
+  - intent: want_food
+  - action: utter_present_menu
+
+- story: pick up & name not available on the ordered list & ask if want to order & yes & want order on the tablet
   steps:
   - intent: pick_up
   - action: utter_ask_pickup_name
+  - intent: get_the_pickup_name
+  - action: pick_up_action
+  - intent: affirm
+  - action: utter_order_on_tablet
+  - intent: order_with
+  - action: how_to_order
 
-- story: booked table
+- story: pick up & name not available on the ordered list & ask if want to order & yes & want order with a waiter
+  steps:
+  - intent: pick_up
+  - action: utter_ask_pickup_name
+  - intent: get_the_pickup_name
+  - action: pick_up_action
+  - intent: affirm
+  - action: utter_order_on_tablet
+  - intent: want_to_order_with_waiter
+  - action: utter_calling_waiter
+
+- story: pick up & name not available on the ordered list & ask if want to order & non
+  steps:
+  - intent: pick_up
+  - action: utter_ask_pickup_name
+  - intent: get_the_pickup_name
+  - action: pick_up_action
+  - intent: deny
+  - action: utter_no_table_sorry
+
+- story: booked table & not in booked list & want to wait
   steps:
   - intent: table_booked
   - action: utter_ask_name
   - intent: get_name
   - action: booked_table_action
+  - intent: request_numbers_of_pople
+  - action: search_for_table
+  - intent: affirm
+  - action: utter_it_wont_take_long
+
+- story: booked table & not in booked list & deosn't want to wait
+  steps:
+  - intent: table_booked
+  - action: utter_ask_name
+  - intent: get_name
+  - action: booked_table_action
+  - intent: request_numbers_of_pople
+  - action: search_for_table
+  - intent: deny
+  - action: utter_no_table_sorry
+ 
+
+
+- story: process debit payment 
+  steps: 
+  - intent: want_make_payment
+  - action: utter_ask_how_to_pay
+  - intent: pay_on_debit
+  - action: utter_proceed_payment_terminal
+
+- story: process cash payment 
+  steps: 
+  - intent: want_make_payment
+  - action: utter_ask_how_to_pay
+  - intent: pay_with_cash
+  - action: utter_proceed_cash_payment
+
 
 
 
